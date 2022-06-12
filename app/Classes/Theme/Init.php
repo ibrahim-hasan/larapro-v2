@@ -19,6 +19,10 @@ class Init
     private static function initLayout()
     {
         Metronic::addAttr('body', 'id', 'kt_body');
+        
+        if(config('layout.self.rtl')) {
+            Metronic::addAttr('html', 'dir', 'rtl');
+        }
 
         // Offcanvas directions
         Metronic::addClass('body', 'quick-panel-right');

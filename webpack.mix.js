@@ -2,6 +2,7 @@ const mix = require('laravel-mix');
 const glob = require('glob');
 const path = require('path');
 const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin');
+const WebpackRTLPlugin = require('webpack-rtl-plugin');
 const rimraf = require('rimraf');
 
 /*
@@ -111,7 +112,14 @@ mix.webpackConfig({
                     },
                 ],
             },
-        ])
+        ]),
+        new WebpackRTLPlugin({
+            filename: '[file].rtl.css',
+            options: {},
+            plugins: [],
+            diffOnly: false,
+            minify: true,
+        }),
     ],
 });
 
